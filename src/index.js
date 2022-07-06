@@ -44,7 +44,7 @@ newRamenForm.addEventListener('submit', async () => {
         'rating': newRamenForm.rating.value,
         'comment': newRamenForm['new-comment'].value
     }
-    console.log(newRamen)
+    // console.log(newRamen)
 
     fetch(ramenUrl, {
         method: 'POST',
@@ -61,7 +61,17 @@ editRamen.addEventListener('submit', (e) => {
         'comment': editRamen['new-comment'].value
     }
 
-    if(edits.rating){ramenRating.textContent=edits.rating}
+    if(edits.rating){
+        ramenRating.textContent=edits.rating
+        /*
+        let ramenID = ????
+        fetch(ramenUrl+ramenID,()=>{
+          method:'PATCH'
+          headers:{ 'Content-type': "application/json; charset=UTF-8" }
+          body: JSON.stringfy(edits.rating)
+        })
+        */
+    }
     if(edits.comment){ramenComment.textContent=edits.comment}
 
 })
